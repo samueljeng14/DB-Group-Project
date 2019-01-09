@@ -33,7 +33,7 @@ public class GetContent {
 
 	public GetContent(String searchKeyword) throws IOException {
 		this.searchKeyword = searchKeyword;
-		this.urlGoogle = "http://www.google.com.tw/search?q=" + searchKeyword +"&oe=utf8&num=20";
+		this.urlGoogle = "http://www.google.com.tw/search?q=" + searchKeyword +"&oe=utf8&num=100";
 		GetGoogle();
 	}
 	
@@ -128,14 +128,14 @@ public class GetContent {
 			try{
 				content_ownText = query(index);
 			}catch (MalformedURLException e){
-				System.out.print("No Protocol: ");
-				System.out.println(index);
+//				System.out.print("No Protocol: ");
+//				System.out.println(index);
 			}catch (NullPointerException e){}
 			index ++;
 //		===============關鍵字在這邊改================
-			Keyword keyword1 = new Keyword("yes", 5);
-			Keyword keyword2 = new Keyword("movie", 10);
-			Keyword keyword3 = new Keyword("good", 20);
+			Keyword keyword1 = new Keyword("HD", 5);
+			Keyword keyword2 = new Keyword("FREE", 8);
+			Keyword keyword3 = new Keyword("STREAM", 13);
 //		===========================================
 
 			try{
@@ -197,8 +197,8 @@ public class GetContent {
 //			System.out.println(i + RC.get(i).toString());
 //		}
 
-		System.out.println("cite sorting :");
-		System.out.println(RC.size());
+//		System.out.println("cite sorting :");
+//		System.out.println(RC.size());
 		Collections.sort(RC, ReturnCites.citeScoreComparator);
 
 		for(ReturnCites sortedcite : RC) {
